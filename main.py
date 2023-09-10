@@ -2,6 +2,7 @@ import os
 import time
 import random
 
+
 class BudgetOptimizer:
     def __init__(self, user_income, user_expenses, financial_goals):
         self.user_income = user_income
@@ -11,7 +12,8 @@ class BudgetOptimizer:
     def analyze_expenses(self):
         budget_plan = {}
         for category in self.user_expenses:
-            limit = (self.user_income - self.financial_goals) / len(self.user_expenses)
+            limit = (self.user_income - self.financial_goals) / \
+                len(self.user_expenses)
             budget_plan[category] = limit
         return budget_plan
 
@@ -153,7 +155,8 @@ class FinancialAssistant:
 
     def answer_user_questions(self):
         while True:
-            user_question = input("Enter your financial question (or 'q' to quit): ")
+            user_question = input(
+                "Enter your financial question (or 'q' to quit): ")
 
             if user_question.lower() == "q":
                 break
@@ -215,12 +218,15 @@ class FinanceAssistantProgram:
             self.execute_choice(choice)
 
     def initialize_functions(self):
-        self.budget_optimizer = BudgetOptimizer(5000, ["Food", "Rent", "Entertainment"], 4000)
+        self.budget_optimizer = BudgetOptimizer(
+            5000, ["Food", "Rent", "Entertainment"], 4000)
         self.expense_tracker = ExpenseTracker()
         self.bill_payment = BillPayment(payment_platform="ABC")
         self.investment_advisor = InvestmentAdvisor(50000, "Medium")
-        self.side_hustle_opp = SideHustleOpportunities(["Programming", "Writing"], ["Photography", "Cooking"])
-        self.savings_strategies = SavingsStrategies(50000, 4000, {"Food": 400, "Rent": 1500, "Entertainment": 100})
+        self.side_hustle_opp = SideHustleOpportunities(
+            ["Programming", "Writing"], ["Photography", "Cooking"])
+        self.savings_strategies = SavingsStrategies(
+            50000, 4000, {"Food": 400, "Rent": 1500, "Entertainment": 100})
         self.financial_assistant = FinancialAssistant()
         self.performance_analytics = PerformanceAnalytics()
 
@@ -252,7 +258,8 @@ class FinanceAssistantProgram:
             savings_percentage = self.savings_strategies.suggest_savings_percentage()
             reduction_recommendations = self.savings_strategies.recommend_expense_reduction()
             print("Savings Percentage:", savings_percentage)
-            print("Expense Reduction Recommendations:", reduction_recommendations)
+            print("Expense Reduction Recommendations:",
+                  reduction_recommendations)
         elif choice == "7":
             self.financial_assistant.provide_financial_resources()
             self.financial_assistant.answer_user_questions()
